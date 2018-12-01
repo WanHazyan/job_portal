@@ -46,9 +46,21 @@ require_once("db.php");
 				<a href="index.php"><img src="uploads/office/britay.png" alt="" class="logo"></a>
 			</div>
 			
-		<div class="navbar1_links">
-			<ul class="menu">
-		<?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
+			<div class="navbar1_links">
+		<ul class="menu">
+					 <li>
+            <a href="jobs.php">Jobs</a>
+          </li>
+          <li>
+            <a href="candidate.php">Candidates</a>
+          </li>
+          <li>
+            <a href="#">Company</a>
+          </li>
+          <li>
+            <a href="#about">About Us</a>
+          </li>
+          <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
           <li>
             <a href="login-candidates.php">Login</a>
           </li>
@@ -72,25 +84,19 @@ require_once("db.php");
           <li>
             <a href="logout.php">Logout</a>
           </li>
-          <?php } ?>      
-				</ul>
+          <?php } ?>
+		</ul>
+			</div>
 			</div>
 		</div>
-	</div>
 
-<div class="content-wrapper" style="margin-left: 0px;">
+   <div class="content-wrapper" style="margin-left: 0px;">
 
     <section class="content-header">
       <div class="container">
         <div class="row">
           <div class="col-md-12 latest-job margin-top-50 margin-bottom-20">
-          <h1 class="text-center">Latest Jobs</h1>  
-            <div class="input-group input-group-lg">
-                <input type="text" id="searchBar" class="form-control" placeholder="Search job">
-                <span class="input-group-btn">
-                  <button id="searchBtn" type="button" class="btn btn-info btn-flat">Go!</button>
-                </span>
-            </div>
+          <h1 class="text-center">Latest Candidates</h1>  
           </div>
         </div>
       </div>
@@ -101,7 +107,10 @@ require_once("db.php");
         <div class="row">
           <div class="col-md-3">
             <div class="box box-solid">
-              <div class="box-body no-padding">      
+              <div class="box-body no-padding">
+                
+                
+                    
               </div>
             </div>
           </div>
@@ -111,7 +120,7 @@ require_once("db.php");
 
           $limit = 4;
 
-          $sql = "SELECT COUNT(id_jobpost) AS id FROM job_post";
+          $sql = "SELECT COUNT(id_user) AS id FROM users";
           $result = $conn->query($sql);
           if($result->num_rows > 0)
           {
@@ -174,7 +183,7 @@ require_once("db.php");
       onPageClick: function (e, page) {
         e.preventDefault();
         $("#target-content").html("loading....");
-        $("#target-content").load("jobpagination.php?page="+page);
+        $("#target-content").load("candidatepagination1.php?page="+page);
       }
     });
   }

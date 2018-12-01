@@ -1,13 +1,10 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
 
-
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("db.php");
 ?>
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
@@ -36,37 +33,31 @@ require_once("db.php");
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<link rel="stylesheet" href="css/style.css">
+		
 </head>
-<body class="hold-transition skin-green sidebar-mini">
-<div class="wrapper">
 
-  <header class="main-header">
+<body class="hold-transition skin-blue sidebar-mini">
 
-    <!-- Logo -->
-    <a href="index.php" class="logo logo-bg">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>B</b>A</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Britay</b> Asia</span>
-    </a>
-
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <li>
+<div class="navbar1">
+			<div class="container">
+			<div class="logo_div">
+				<a href="index.php"><img src="uploads/office/britay.png" alt="" class="logo"></a>
+			</div>
+			
+			<div class="navbar1_links">
+			<ul class="menu">
+			
+			<li>
             <a href="login.php">Login</a>
-          </li>
-          <li>
+			</li>
+			<li>
             <a href="sign-up.php">Sign Up</a>
-          </li>          
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-
+			</li>         
+				</ul>
+			</div>
+			</div>
+		</div>
 
   <div class="content-wrapper" style="margin-left: 0px;">
 
@@ -109,15 +100,13 @@ require_once("db.php");
           </div>
           <div class="col-md-3">
             <div class="thumbnail">
-              <img src="uploads/logo/britay.png" alt="companylogo">
+              <img src="uploads/office/britay.png" alt="companylogo">
               <div class="caption text-center">
                 <h3><?php echo $row['username']; ?></h3>
                 <p><a href="#" class="btn btn-primary btn-flat" role="button">More Info</a>
                 <hr>
                 <div class="row">
-                  <div class="col-md-4"><a href=""><i class="fa fa-address-card-o"></i> Apply</a></div>
-                  <div class="col-md-4"><a href=""><i class="fa fa-warning"></i> Report</a></div>
-                  <div class="col-md-4"><a href=""><i class="fa fa-envelope"></i> Email</a></div>
+                  <div class="col-md-4"><a href="apply.php"><i class="fa fa-address-card-o"></i> Apply</a></div>
                 </div>
               </div>
             </div>
@@ -136,12 +125,7 @@ require_once("db.php");
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer" style="margin-left: 0px;">
-    <div class="text-center">
-      <strong>Copyright &copy; 2016-2017 <a href="learningfromscratch.online">Job Portal</a>.</strong> All rights
-    reserved.
-    </div>
-  </footer>
+  
 
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed

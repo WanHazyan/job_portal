@@ -1,13 +1,11 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
 
-
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("db.php");
+
 ?>
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
@@ -36,25 +34,32 @@ require_once("db.php");
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<link rel="stylesheet" href="css/style.css">
+		
 </head>
-<body class="hold-transition skin-green sidebar-mini">
-<div class="wrapper">
 
-  <header class="main-header">
+<body class="hold-transition skin-blue sidebar-mini">
 
-    <!-- Logo -->
-    <a href="index.php" class="logo logo-bg">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>B</b>A</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Britay</b> Asia</span>
-    </a>
-
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
+<div class="navbar1">
+			<div class="container">
+			<div class="logo_div">
+				<a href="index.php"><img src="uploads/office/britay.png" alt="" class="logo"></a>
+			</div>
+			
+			<div class="navbar1_links">
+		<ul class="menu">
+					 <li>
+            <a href="jobs.php">Jobs</a>
+          </li>
+          <li>
+            <a href="candidate.php">Candidates</a>
+          </li>
+          <li>
+            <a href="#">Company</a>
+          </li>
+          <li>
+            <a href="#about">About Us</a>
+          </li>
           <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
           <li>
             <a href="login-candidates.php">Login</a>
@@ -79,14 +84,13 @@ require_once("db.php");
           <li>
             <a href="logout.php">Logout</a>
           </li>
-          <?php } ?>          
-        </ul>
-      </div>
-    </nav>
-  </header>
+          <?php } ?>
+		</ul>
+			</div>
+			</div>
+		</div>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin-left: 0px;">
+   <div class="content-wrapper" style="margin-left: 0px;">
 
     <section class="content-header">
       <div class="container">

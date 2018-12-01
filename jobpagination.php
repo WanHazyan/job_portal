@@ -26,7 +26,7 @@ if($result->num_rows > 0) {
              ?>
 
 		   <div class="attachment-block clearfix">
-              <img class="attachment-img" src="uploads/logo/britay.png" alt="Attachment Image">
+              <img class="attachment-img" src="uploads/office/britay.png" alt="Attachment Image">
               <div class="attachment-pushed">
                 <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">RM<?php echo $row['salary']; ?>/Month</span></h4>
                 <div class="attachment-text">

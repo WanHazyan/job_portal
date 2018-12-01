@@ -1,13 +1,11 @@
 <?php
-
-//To Handle Session Variables on This Page
 session_start();
 
-
-//Including Database Connection From db.php file to avoid rewriting in all files
 require_once("db.php");
+
 ?>
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
@@ -36,33 +34,28 @@ require_once("db.php");
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<link rel="stylesheet" href="css/style.css">
+		
 </head>
-<body class="hold-transition skin-green sidebar-mini">
-<div class="wrapper">
 
-  <header class="main-header">
+<body class="hold-transition skin-blue sidebar-mini">
 
-    <!-- Logo -->
-    <a href="index.php" class="logo logo-bg">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>B</b>A</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Britay</b> Asia</span>
-    </a>
-
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <li>
+<div class="navbar1">
+			<div class="container">
+			<div class="logo_div">
+				<a href="index.php"><img src="uploads/office/britay.png" alt="" class="logo"></a>
+			</div>
+			
+			<div class="navbar1_links">
+		<ul class="menu">
+					 <li>
             <a href="jobs.php">Jobs</a>
           </li>
           <li>
             <a href="candidate.php">Candidates</a>
           </li>
           <li>
-            <a href="view-candidates.php">Company</a>
+             <a href="#company">Company</a>
           </li>
           <li>
             <a href="#about">About Us</a>
@@ -92,21 +85,21 @@ require_once("db.php");
             <a href="logout.php">Logout</a>
           </li>
           <?php } ?>
-        </ul>
-      </div>
-    </nav>
-  </header>
+				</ul>
+			</div>
+			</div>
+		</div>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="margin-left: 0px;">
+   <div class="content-wrapper" style="margin-left: 0px;">
 
     <section class="content-header bg-main">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center index-head">
-            <h1>All <strong>JOBS</strong> In One Place</h1>
-            <p>One search, global reach</p>
-            <p><a class="btn btn-success btn-lg" href="jobs.php" role="button">Search Jobs</a></p>
+            <h1>Britay Asia <strong>Recruitement Program</strong></h1>
+            <p>Finding Your Dream Jobs in One Place</p>
+            <p><a class="btn btn-primary btn-lg" href="jobs.php" role="button">Candidates</a>
+			<a class="btn btn-primary btn-lg" href="candidate.php" role="button">Employers</a></p>
           </div>
         </div>
       </div>
@@ -135,7 +128,7 @@ require_once("db.php");
                 {
              ?>
             <div class="attachment-block clearfix">
-              <img class="attachment-img" src="img/photo1.png" alt="Attachment Image">
+              <img class="attachment-img" src="uploads/office/britay.png" alt="Attachment Image">
               <div class="attachment-pushed">
                 <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">RM<?php echo $row['salary']; ?>/Month</span></h4>
                 <div class="attachment-text">
@@ -201,7 +194,7 @@ require_once("db.php");
         <div class="row">
           <div class="col-md-12 text-center latest-job margin-bottom-20">
             <h1>Companies</h1>
-            <p>Hiring? Register your company for free, browse our talented pool, post and track job applications</p>            
+            <p>Hiring? Browse through our candidates database and let us know which one you are interested on! </p>
           </div>
         </div>
         <div class="row">
@@ -231,6 +224,7 @@ require_once("db.php");
           </div>
         </div>
       </div>
+	 
     </section>
 
     <section id="statistics" class="content-header">
@@ -376,13 +370,16 @@ require_once("db.php");
   <div class="control-sidebar-bg"></div>
 
 </div>
-<!-- ./wrapper -->
 
-<!-- jQuery 3 -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
+
+
+
 </body>
+
 </html>

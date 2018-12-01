@@ -1,14 +1,11 @@
-<?php 
-
+<?php
 session_start();
 
-if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) { 
-  header("Location: index.php");
-  exit();
-}
+require_once("db.php");
 
 ?>
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
@@ -37,10 +34,10 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-		
-		
-		
-		 <style>
+  <link rel="stylesheet" href="css/style.css">
+  
+  
+ <style>
  table {
 			margin: auto;
 			font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
@@ -107,29 +104,30 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 		}
 		
  </style>
-		
-		
+  		
 </head>
-<body class="hold-transition skin-green sidebar-mini">
-<div class="wrapper">
 
-  <header class="main-header">
+<body class="hold-transition skin-blue sidebar-mini">
 
-    <!-- Logo -->
-    <a href="index.php" class="logo logo-bg">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>B</b>A</span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Britay</b> Asia</span>
-    </a>
-
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <li>
+<div class="navbar1">
+			<div class="container">
+			<div class="logo_div">
+				<a href="index.php"><img src="uploads/office/britay.png" alt="" class="logo"></a>
+			</div>
+			
+			<div class="navbar1_links">
+				<ul class="menu">
+					 <li>
             <a href="jobs.php">Jobs</a>
+          </li>
+          <li>
+            <a href="candidate.php">Candidates</a>
+          </li>
+          <li>
+            <a href="#">Company</a>
+          </li>
+          <li>
+            <a href="#about">About Us</a>
           </li>
           <?php if(empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
           <li>
@@ -155,20 +153,21 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
           <li>
             <a href="logout.php">Logout</a>
           </li>
-          <?php } ?>          
-        </ul>
-      </div>
-    </nav>
-  </header>
+          <?php } ?>
+				</ul>
+			</div>
+			</div>
+		</div>
 
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin-left: 0px;">
 
     <section class="content-header">
       <div class="container">
         <div class="row latest-job margin-top-50 margin-bottom-20 bg-white">
           <h1 class="text-center margin-bottom-20">CREATE YOUR PROFILE</h1>
-<form  method="post" id="registerCandidates" action="adduser.php" enctype="multipart/form-data">
+		  <h4 style="color:black;" class="text-center margin-bottom-10">Please register before applying for jobs</h4><br />
+
+		  <form  method="post" id="registerCandidates" action="adduser.php" enctype="multipart/form-data">
 
 
 <table border="0" cellpadding="5" cellspacing="0">
@@ -182,7 +181,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 <p>
 <tr> <td>
 <label for="ic_no" type="text" id="ic_no" placeholder="ic_no" style="color:black;"><b>NRIC *</b></label><br />
-<input name="ic_no" class="form-control" type="text" maxlength="50" style="width: 235px" required />
+<input name="ic_no" class="form-control" type="text" maxlength="12" style="width: 235px" required />
 </td> 
 
 <td>
@@ -400,7 +399,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
 <td>
 <label for="race" style="color:black;"><b>Race</b></label><br/>
-<select name = "race" class="form-control " type="text" id="race"  maxlength="50" style="width: 235px"> <br>
+<select name = "race" class ="form-control" type ="text" id="race"  maxlength="50" style="width: 235px"> <br>
 				<option value="">-- select one --</option>
 					<option value="Malay">Malay</option>
 					<option value="Chinese">Chinese</option>
@@ -450,12 +449,12 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 <p>
 <tr>
 <td colspan="2">
-<label for="highest_qualification" type="highest_qualifiation" id="highest_qualification" placeholder="Highest Qualification" style="color:black;"><b>Highest Qualification</b></label><br/>
-<select name = "highest_qualification" class="form-control " type="text" id="highest_qualification"  maxlength="50" style="width: 235px"> <br>
+<label for="highest_qualification" style="color:black;"><b>Highest Qualification</b></label><br/>
+<select name = "highest_qualification" class ="form-control" type ="text" id="highest_qualification"  maxlength="50" style="width: 235px"> <br>
 				<option value="">-- select one --</option>
 					<option value="PhD">PhD</option>
-					<option value="Master">Master/Postgraduate</option>
-					<option value="Bachelor">Bachelor/Undergraduate</option>
+					<option value="Postgraduate/Master">Postgraduate/Master</option>
+					<option value="Degree">Degree</option>
 					<option value="Diploma">Diploma</option>					
 				</select>
 				
@@ -464,14 +463,11 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
 <p>
 <tr><td colspan="2">
-<label for="university" type="text" id="university" placeholder="University" style="color:black;"><b>University</b></label><br/>
-<select name="university" class="form-control"type="text" id="university"  maxlength="100" style="width: 560px">
+<label for="university" type="text"  placeholder="University" style="color:black;"><b>University</b></label><br/>
+<select name="university" class="form-control" type="text" id="university" maxlength="50" style="width: 235px" >5px" >
 
     <option value="">--select one--</option>
    <optgroup label="GENERAL UNIVERSITY">
-  
-    </option>
-
     <option value="Universiti Kebangsaan Malaysia">Universiti Kebangsaan Malaysia </option>
     <option value="Universiti Malaya"> Universiti of Malaya</option>
     <option value="Univeristy of Malaysia Kelantan">University of Malaysia Kelantan </option>
@@ -538,7 +534,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
 <div id="ifYes1" style="display:none">
   <div class="form-group">
-    <input class="form-control" id="university" name="university" placeholder="Please write your University's name" />
+    <input class="form-control" id="university1" name="university1" placeholder="Please write your University's name" />
   </div>
 </div>
 </td>
@@ -547,7 +543,7 @@ if(isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
 <script>
 
-document.querySelector("[name=university]").onchange=function() {
+document.querySelector("[name=university1]").onchange=function() {
   document.getElementById("ifYes1").style.display=this.value=="others"?"block":"none";
 }
 </script>
@@ -666,19 +662,17 @@ Total 19 years of working experience in Sales & Business Development in various 
 
 		<td>
 		<label style="color:black;">Latest passport photo</label>
-        
-		<input class="btn btn-danger" type="file" name="image" id="profile-img" required/><br>
+ 		<input type="file" name="image" class="form-control" id="profile-img" required>
 		<img src="" id="profile-img-tag" width="200px" />
 		
-		</td></tr>
-
+		</td>
+	</tr>
+		
 	<tr>
 		
 		<td>
 		<label style="color:black;">File format PDF and doc only!</label>
-        
-		<input type="file" name="resume" class="btn btn-danger" required>
-		
+		<input type="file" name="resume" class="form-control" required>
 		</td>
 		
 	</tr>	
@@ -716,7 +710,7 @@ Total 19 years of working experience in Sales & Business Development in various 
 
 <table>	 
 	 	 <td class="form-group">
-                <button class="btn btn-flat btn-success">Register</button>
+                <button class="btn btn-flat btn-primary">Register</button>
       </td>
 	</table>
 </form>
